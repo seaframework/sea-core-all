@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <parent>
+        <artifactId>sea-root</artifactId>
+        <groupId>com.github.seaframework</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+    <groupId>com.github.seaframework</groupId>
+    <artifactId>sea-core-all</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <modules>
+        <module>sea-core-basic</module>
+        <module>sea-core-test</module>
+    </modules>
+
+    <properties>
+        <maven.test.skip>true</maven.test.skip>
+
+        <!--  三方类库  -->
+        <hutool.version>4.5.17</hutool.version>
+        <!-- groovy 2.5只后变成pom了-->
+        <!-- <groovy.version>2.5.7</groovy.version>-->
+
+        <!-- for test -->
+        <junit-jupiter.version>5.5.0</junit-jupiter.version>
+        <!--  注意：mockito版本高于此版本的有bug  -->
+        <mockito.version>2.23.4</mockito.version>
+        <assertj-core.version>3.12.2</assertj-core.version>
+        <junit-platform-launcher.version>1.5.1</junit-platform-launcher.version>
+        <apache.commons.compress.version>1.18</apache.commons.compress.version>
+        <google.zxing.version>3.4.0</google.zxing.version>
+        <aliyun.oss.sdk.version>3.5.0</aliyun.oss.sdk.version>
+        <javers.version>5.6.3</javers.version>
+        <alibaba.rocketmq.version>3.4.9</alibaba.rocketmq.version>
+        <sofa.tracer.version>3.0.5</sofa.tracer.version>
+        <jedis.version>3.2.0</jedis.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.seaframework</groupId>
+                <artifactId>sea-core-basic</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.seaframework</groupId>
+                <artifactId>sea-core-test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
+            <!--  sea core end -->
+
+            <!--  junit5 begin   -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit-jupiter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-params</artifactId>
+                <version>${junit-jupiter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.platform</groupId>
+                <artifactId>junit-platform-launcher</artifactId>
+                <version>${junit-platform-launcher.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-junit-jupiter</artifactId>
+                <version>${mockito.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj-core.version}</version>
+            </dependency>
+            <!--  junit5 end   -->
+
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-compress</artifactId>
+                <version>${apache.commons.compress.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>${google.zxing.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${google.zxing.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun.oss.sdk.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.javers</groupId>
+                <artifactId>javers-core</artifactId>
+                <version>${javers.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${alibaba.rocketmq.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>tracer-core</artifactId>
+                <version>${sofa.tracer.version}</version>
+            </dependency>
+
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>rebel.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+</project>
